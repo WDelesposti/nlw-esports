@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import * as Dialog from '@radix-ui/react-dialog';
 
 import { GameBanner } from './components/GameBanner';
 import { CreateAdBanner } from './components/CreateAtBanner';
@@ -46,7 +47,21 @@ function App() {
         })}
       </div>
 
-      <CreateAdBanner />
+      <Dialog.Root>  
+        <CreateAdBanner />
+
+        <Dialog.Portal>
+          <Dialog.Overlay className='fixed inset-0 bg-black bg-opacity-30' />
+
+          <Dialog.Content className='fixed inset-0 flex items-center justify-center'>
+            <Dialog.Title>Publique um anúncio</Dialog.Title>
+
+            <Dialog.Content>
+              Teste
+            </Dialog.Content>
+          </Dialog.Content>
+        </Dialog.Portal>  
+      </Dialog.Root>
     </div>
   )
 }
