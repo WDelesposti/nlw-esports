@@ -23,7 +23,7 @@ function App() {
   const [games, setGames] = useState<Game[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/games')
+    fetch('http://localhost:3333/games')
       .then(response => response.json())
       .then(data => setGames(data));
   }, []);
@@ -60,7 +60,7 @@ function App() {
 
               <form className='mt-8 flex flex-col gap-4'>
                 <div className='flex flex-col gap-2'>
-                  <label htmlFor='game' className='font-semibold'>Qual o game</label>
+                  <label htmlFor='game' className='font-semibold'>Qual o game?</label>
                   <Input id='game' placeholder='Selecione o game que deseja jogar' />
                 </div>
 
