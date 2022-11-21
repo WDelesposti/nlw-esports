@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { View, TouchableOpacity, Image, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Entypo } from '@expo/vector-icons';
@@ -27,7 +27,7 @@ export function Game() {
   }
 
   useEffect(() => {
-    fetch(`http://192.168.0.107:3333/games/${game.id}/ads`)
+    fetch(`http://192.168.0.111:3333/games/${game.id}/ads`)
       .then(response => response.json())
       .then(data => setDuos(data));
   }, []);
@@ -74,8 +74,13 @@ export function Game() {
           )}
           horizontal
           style={styles.containerList}
-          contentContainerStyle={styles.contentList}
+          contentContainerStyle={[duos.length > 0 ? styles.contentList : styles.emptyListContent]}
           showsHorizontalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <Text style={styles.emptyListText}>
+              Nenhum anúncio encontrado
+            </Text>
+          )}
         />
       </SafeAreaView>
     </Background>
