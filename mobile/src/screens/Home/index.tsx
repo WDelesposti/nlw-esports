@@ -18,11 +18,10 @@ export function Home() {
 
   function handleOpenGame({ id, title, bannerUrl }: GameCardProps) {
     navigation.navigate('game', { id, title, bannerUrl });
-
   }
 
   useEffect(() => {
-    fetch('http://192.168.0.111:3333/games')
+    fetch('http://192.168.0.108:3333/games')
       .then(response => response.json())
       .then(data => setGames(data));
   }, []);
