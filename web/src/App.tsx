@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 
-import { GameController } from 'phosphor-react';
 import { GameBanner } from './components/GameBanner';
 import { CreateAdBanner } from './components/CreateAtBanner';
 
