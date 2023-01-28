@@ -7,7 +7,7 @@ import { CreateAdBanner } from './components/CreateAtBanner';
 import './styles/main.css';
 
 import logoImg from './assets/logo-nlw-esports.svg';
-import { CreateAtModal } from './components/CreateAtModal';
+import { CreateAdModal } from './components/CreateAdModal';
 
 interface Game {
   id: string;
@@ -50,7 +50,7 @@ function App() {
 
       <Dialog.Root>  
         <CreateAdBanner />
-        <CreateAtModal />
+        <CreateAdModal />
       </Dialog.Root>
     </div>
   )
