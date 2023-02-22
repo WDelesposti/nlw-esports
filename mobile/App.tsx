@@ -12,6 +12,8 @@ import { Loading } from './src/components/Loading';
 import './src/services/notificationConfigs';
 import { getPushNotificationToken } from './src/services/getPushNotificationToken';
 
+import { AuthProvider } from './src/contexts/auth'
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -43,15 +45,17 @@ export default function App() {
       }
     } 
   }, []);
-  
+
   return (
     <Background>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      {fontsLoaded ? <Routes /> : <Loading />}
+      <AuthProvider>
+        <StatusBar
+          barStyle="light-content"
+          backgroundColor="transparent"
+          translucent
+        />
+        {fontsLoaded ? <Routes /> : <Loading />}
+     </AuthProvider>
     </Background>
   );
 }

@@ -1,22 +1,23 @@
 import { Image, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { GameController } from 'phosphor-react-native'; 
-import * as AuthSession from 'expo-auth-session';
+import AuthContext from '../../contexts/auth';
 
-import logoImg from '../../assets/logo-nlw-esports.png';
 import { THEME } from '../../theme';
 import { styles } from './styles';
+import logoImg from '../../assets/logo-nlw-esports.png';
 
 import { Background } from '../../components/Background';
 import { Heading } from '../../components/Heading';
+import { useContext } from 'react';
 
 export function SignIn() {
-  async function handleDiscordSignIn() {
+  const { signed, signIn } = useContext(AuthContext)
 
-    const response = await AuthSession.startAsync({
-      authUrl: ""
-    })
-    console.log(response)
+  console.log(signed)
+
+  function handleDiscordSignIn() {    
+    signIn();
   }
 
   return (
